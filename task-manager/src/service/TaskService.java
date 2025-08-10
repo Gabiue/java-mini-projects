@@ -48,6 +48,12 @@ public class TaskService {
         t.setStatus(newStatus);
         return true;
     }
+        public boolean updateDescription(String title, String newDescription) {
+        Task t = findByTitle(title);
+        if (t == null) return false;
+        t.setTaskDescription(newDescription == null ? "" : newDescription.trim());
+        return true;
+    }
 
     public boolean renameTask(String oldTitle, String newTitle){
         String oldKey = keyOf(oldTitle);
